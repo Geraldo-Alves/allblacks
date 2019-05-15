@@ -3,14 +3,27 @@
 {% block title %}Hello TorcedoresController!{% endblock %}
 
 {% block body %}
+    <div class="example-wrapper">
+        <div class="jumbotron">
+            <table class="table table-striped">
+                <tr>
+                    <th>Nome</th>
+                    <th>e-mail</th>
+                    <th>Opt</th>
+                </tr>
+                {% for torcedor in torcedores %}
+                    <tr>
+                        <td>{{ torcedor.nome_torcedor }}</td>
+                        <td>{{ torcedor.email }}</td>
+                        <td><button class="btn btn-success">Opt</button></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-
-<div class="example-wrapper">
-    {% for torcedor in torcedores %}
-        {{ torcedor.nome_torcedor }} <br>
-    {% endfor %}
-</div>
 {% endblock %}

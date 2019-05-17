@@ -5,6 +5,11 @@
 {% block body %}
     <div class="example-wrapper">
         <div class="jumbotron">
+            <div class="row">
+                <div class="col">
+                    <a href="torcedor/new" class="btn btn-primary">Novo</a>
+                </div>
+            </div>
             <table class="table table-striped">
                 <tr>
                     <th>Nome</th>
@@ -15,7 +20,11 @@
                     <tr>
                         <td>{{ torcedor.nome_torcedor }}</td>
                         <td>{{ torcedor.email }}</td>
-                        <td><button class="btn btn-success">Opt</button></td>
+                        <td>
+                            <form method="POST" action="/torcedor/{{ torcedor.id }}">
+                                <input name="_method" value="DELETE" hidden>
+                                <button class="btn btn-danger">Delete</button>
+                            </form></td>
                     </tr>
                 {% endfor %}
             </table>

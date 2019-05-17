@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TorcedoresController extends AbstractController
 {
     /**
-     * @Route("/torcedores", name="torcedores")
+     * @Route("/", name="torcedores")
      */
     public function index()
     {
@@ -53,5 +53,12 @@ class TorcedoresController extends AbstractController
             'controller_name' => 'TorcedoresController',
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/torcedor/{id}", methods="DELETE")
+     */
+    public function delete($id){
+        dd($id);
     }
 }
